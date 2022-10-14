@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Trang Chu</title>
+</head>
+<body>
+    <div class="content">
+        <form id="create" method="post" action="/" enctype="multipart/form-data">
+                <input type="text" name="stt" placeholder="So Thu Tu" />
+                <input type="text" name="ten_baocao" placeholder="Ten bao cao" />
+                <input type="text" name="ten_tacgia" placeholder="Ten tac gia" />
+                <input type="text" name="chi_so" placeholder="Chi so" />
+                <input type="text" name="so_trang" placeholder="So trang" />
+                <input type="text" name="nam_xb" placeholder="Nam XB" />
+                <input type="file" name="image"/>
+                <input type="submit" value="Them"/>
+            </form>
+        
+                <table border="3">
+                <tr>
+                    <th>STT</th>
+                    <th>Ten Bao Cao</th>
+                    <th>Ten Nhom Tac Gia</th>
+                    <th>Chi So ISBN</th>
+                    <th>So Trang</th>
+                    <th>Nam Xuat Ban</th>
+                    <th>hinh anh</th>
+                    <th>Chon</th>
+                </tr>
+                <%for(let i= 0; i < data.length; i++) { %>
+                    <tr>
+                        <td><%= data[i].stt %></td>
+                        <td><%= data[i].ten_baocao %></td>
+                        <td><%= data[i].ten_tacgia %></td>
+                        <td><%= data[i].chi_so %></td>
+                        <td><%= data[i].so_trang %></td>
+                        <td><%= data[i].nam_xb %></td>
+                        <td><img width="50px" src="<%= data[i].image_url%>"/></td>
+                        <td>
+                            <form id="delete" method="post" action="/delete" enctype="multipart/form-data">
+                                <input type="hidden" name="stt" value="<%= data[i].stt %>"/>
+                                <input type="hidden" name="ten_baocao" value="<%= data[i].ten_baocao %>"/>
+                                <input type="submit" value="Xoa" onclick="return confirm('Ban chac chan muon xoa')" 
+                                name="<%= data[i].ten_baocao %>"/>
+                            </form>
+                            
+                        </td>
+                    </tr>
+                    
+                <% }%>
+            </table>
+            
+    </div> 
+</body>
+</html>

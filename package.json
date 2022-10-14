@@ -1,0 +1,23 @@
+{
+  "name": "hinhanh",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1231.0",
+    "budget": "^1.0.3",
+    "buffer": "^6.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^2.0.20",
+    "save-dev": "^0.0.1-security"
+  }
+}
